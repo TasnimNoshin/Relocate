@@ -3,6 +3,12 @@ package project.Relocate;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Tasnim Bari Noshin, Jenny Feng Chen
+ * 
+ *
+ */
 public class Income {
 
 	ArrayList<CityIncome> cities;
