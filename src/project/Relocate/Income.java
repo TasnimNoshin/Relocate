@@ -30,7 +30,7 @@ public class Income {
 				cI.addIncome(cd.getIncome());
 				// adds city to cities
 				cities.add(cI);
-			} else {
+			} else if(index > -1){
 				// if city already exists add income to the city
 				CityIncome temp = cities.get(index);
 				temp.addIncome(cd.getIncome());
@@ -41,13 +41,13 @@ public class Income {
 
 	// search and get the index of the city, if not found return -1
 	public int searchCity(String cityName) {
-		if (this.cities.contains(cityName)) {
-			for (int i = 0; i < this.cities.size(); i++) {
-				if (this.cities.get(i).equals(cityName)) {
-					return i;
-				}
+		if (cityName == null) return -2;
+		for (int i = 0; i < this.cities.size(); i++) {
+			if (this.cities.get(i).getCityName().equals(cityName)) {
+				return i;
 			}
 		}
+
 		return -1;
 	}
 
