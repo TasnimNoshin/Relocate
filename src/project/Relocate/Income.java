@@ -24,13 +24,13 @@ public class Income {
 		int index;
 		for (CityData cd : c) {
 			CityIncome cI = new CityIncome(cd.getCity());
-			index = searchCity(cd.getCity());
-			if (index == -1) {
+			index = searchCity(cd.getCity(), cd.getDataType());
+			if (index == -1 && cd.getDataType().toLowerCase().contains("median total income") && !cd.getDataType().contains("of")) {
 				// adds income to the city
 				cI.addIncome(cd.getIncome());
 				// adds city to cities
 				cities.add(cI);
-			} else if(index > -1){
+			} else if(index > -1 && cd.getDataType().toLowerCase().contains("median total income") && !cd.getDataType().contains("of")){
 				// if city already exists add income to the city
 				CityIncome temp = cities.get(index);
 				temp.addIncome(cd.getIncome());
@@ -40,7 +40,7 @@ public class Income {
 	}
 
 	// search and get the index of the city, if not found return -1
-	public int searchCity(String cityName) {
+	public int searchCity(String cityName, String dataType) {
 		if (cityName == null) return -2;
 		for (int i = 0; i < this.cities.size(); i++) {
 			if (this.cities.get(i).getCityName().equals(cityName)) {
@@ -55,7 +55,7 @@ public class Income {
 
 		Income n = new Income();
 		for(CityIncome e : n.cities){
-			System.out.println(e.getCityName());
+			System.out.println(e.getCityName()+" "+e.getAvgIncome());
 		}
 	}
 }
