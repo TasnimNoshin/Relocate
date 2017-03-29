@@ -17,6 +17,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * 
+ * @author Tasnim Bari Noshin
+ *
+ */
+ 
 public class InputScreen {
 
 	JFrame frame = new JFrame("Relocate");
