@@ -10,7 +10,7 @@ public class CityData {
 	private final String DataType;
 	private final String Vector;
 	private final double Coordinate;
-	private final double Value;
+	private final double Income;
 	
 	/**
 	 * Creates a new CityData object to represent a line of data pulled from the dataset
@@ -39,7 +39,7 @@ public class CityData {
 		DataType = d;
 		Vector = v;
 		Coordinate = c;
-		Value = val;
+		Income = val;
 	}
 	/**
 	 * Returns the coordinate value of the data
@@ -83,8 +83,8 @@ public class CityData {
 	 * Returns the value of the data
 	 * @return A double containing the data's numerical value
 	 */
-	public double getValue() {
-		return Value;
+	public double getIncome() {
+		return Income;
 	}
 	
 	/**

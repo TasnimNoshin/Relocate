@@ -6,7 +6,9 @@ import java.util.HashMap;
 
 public class JobArray {
     ArrayList<Job> jobs;
-    
+	Income incomeFetcher;
+	ArrayList<CityIncome> income;
+	ProvinceMap map;
     /**
      * 
      * @param data Type: OutlookData
@@ -15,6 +17,9 @@ public class JobArray {
      */
     JobArray () throws IOException {
     	this.jobs = new ArrayList<Job>();
+		incomeFetcher = new Income();
+		map = new ProvinceMap();
+		income = incomeFetcher.getCities();
     	OutlookData[] od = (new Parser()).getOutlookDataArray();
     	toJob(od);
     }
@@ -26,14 +31,41 @@ public class JobArray {
         	index = newJob.searchJob(jobs);
             if(index == -1) {
             	// Province City Potential Trend
+            	//get the province name by province abbr
+            	String provinceName = map.getBackward(od.getProvAbbr());
             	Province province = new Province(od.getProvAbbr(), newJob);
-            	City city = new City(province, od.getLocation());
+            	int i = incomeFetcher.searchCity(provinceName);
+            	//get the avrIncome for a province
+            	province.setProvinceIncome(income.get(i).getAvgIncome());
+            	//if the outlook data does not contain a city or the city does not exist in the income dat
+            	//city income would base on the province income
+            	if(od.getLocation()!=null){	
+            		String city = od.getLocation();
+                	if(incomeFetcher.searchCity(city)>0){
+                		i = incomeFetcher.searchCity(city);	
+                	}
+            	}
+
+            	City city = new City(province, od.getLocation(), income.get(i).getAvgIncome());
                 newJob.addOutlook(province, city, od.getPotential(), od.getTrends());
                 jobs.add(newJob);
             } else {
                 Job j = jobs.get(index);
+            	//get the province name by province abbr
+            	String provinceName = map.getBackward(od.getProvAbbr());
                 Province province = new Province(od.getProvAbbr(), j);
-            	City city = new City(province, od.getLocation());
+            	int i = incomeFetcher.searchCity(provinceName);
+            	//get the avrIncome for a province
+            	province.setProvinceIncome(income.get(i).getAvgIncome());
+            	//if the outlook data does not contain a city or the city does not exist in the income data
+            	//city income would base on the province income
+            	if(od.getLocation()!=null){	
+            		String city = od.getLocation();
+                	if(incomeFetcher.searchCity(city)>0){
+                		i = incomeFetcher.searchCity(city);	
+                	}
+            	}
+            	City city = new City(province, od.getLocation(), income.get(i).getAvgIncome());
                 j.addOutlook(province, city, od.getPotential(), od.getTrends());
                 jobs.set(index, j);
             }

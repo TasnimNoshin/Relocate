@@ -3,14 +3,17 @@ package project.Relocate;
 import java.util.ArrayList;
 
 //cityName represents one city only
+//cityName also accept a province name whne the city name is null
 public class CityIncome {
 
 	private final String cityName;
+	private String province;
 	private ArrayList<Double> incomes;
 	private double avgIncome; 
 
-	CityIncome(String cityName) {
+	CityIncome(String cityName, String province) {
 		this.cityName = cityName;
+		this.province = province;
 		this.incomes = new ArrayList<Double>();
 		this.avgIncome = 0;
 	}

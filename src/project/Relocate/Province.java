@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Province implements Comparable {
 	private final String provinceCode;
 	private double avgPotential;
+	private double provinceIncome;
 	private Job job;
 	private ArrayList<City> cities;
 	private ArrayList<String> provinceTrends;
@@ -46,6 +47,17 @@ public class Province implements Comparable {
 		return this.provinceTrends;
 	}
 	
+	public double getProvinceName() {
+		return provinceIncome;
+	}
+	
+	public double getProvinceIncome() {
+		return provinceIncome;
+	}
+	
+	public void setProvinceIncome(double provinceIncome) {
+		this.provinceIncome = provinceIncome;
+	}
 	/**
 	 * 
 	 * @param city Type: City

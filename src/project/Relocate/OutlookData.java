@@ -38,7 +38,7 @@ public class OutlookData {
 			this.Location = null;
 		} else {
 			this.code = code;
-			this.Location = locName;
+			this.Location = locName.split("-")[0];
 		}
 		this.cityID = 0;
 	}

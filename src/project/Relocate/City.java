@@ -6,10 +6,12 @@ public class City implements Comparable {
 	private final String cityName;
 	private Province province;
 	private Outlook cityOutlook;
+	private double income;
 	
-	City (Province province, String name) {
+	City (Province province, String name, double income) {
 		this.province = province;
 		this.cityName = name;
+		this.income = income;
 	}
 	
 	public String getCityName() {
@@ -44,7 +46,7 @@ public class City implements Comparable {
 
 	@Override
 	public String toString() {
-		return "{City Name: " + cityName + 
+		return income+" {City Name: " + cityName + 
 				"; " + cityOutlook + "}";
 	}
 	
@@ -58,5 +60,10 @@ public class City implements Comparable {
 		if (this.cityOutlook.getPotential() == that.getOutlook().getPotential()) return 0;
 		if (this.cityOutlook.getPotential() > that.getOutlook().getPotential()) return 1;
 		return -1;
+	}
+
+	public long getIncome() {
+		
+		return (long) income;
 	}
 }
