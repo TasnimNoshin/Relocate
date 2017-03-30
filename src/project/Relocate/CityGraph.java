@@ -61,9 +61,9 @@ public class CityGraph {
 	/**
 	 * Returns a few cities related to the given city
 	 * @param toFind The city to find related cities for
-	 * @return An ArrayList of cities related to this city
+	 * @return A String that contains information on the related cities
 	 */
-	public ArrayList<City> getRelatedCities(City toFind){
+	public String getRelatedCities(City toFind){
 		GraphVertex desiredVertex = null;
 		for(GraphVertex w : vertices){
 			//Scan for the city in the graph
@@ -92,8 +92,11 @@ public class CityGraph {
 			GraphEdge e = (GraphEdge) edges.get(i);
 			retArray.add(e.getConnection(dummyNode).getCity());
 		}
-		System.out.println("Done");
-		return retArray;
+		//Convert the array to strings
+		String retString = "Cities related to " + toFind.getCityName() + ":\n";
+		for (City c : retArray){
+			retString += c.toString() + "\n";
+		}
+		return retString;
 	}
-
 }
