@@ -51,8 +51,36 @@ public class Searcher {
 		return result;
 	}
 	
+	public String searchIncomeCity(String jobName, String provinceCode,String aveIncome){
+		double Income = Double.parseDouble(aveIncome);
+		Job searchJob = new Job(jobName);
+		Province searchProvince = new Province(provinceCode, searchJob);
+		int index = searchJob.searchJob(jobs);
+		if (index == -1) return "Job not found.";
+		String result = "";
+		ArrayList<City> cities = jobs.get(index).sortCity();
+		ArrayList<City> filter = new ArrayList<City>();
+		for(City c : cities){
+			if(c.getIncome()>=Income){
+				filter.add(c);
+			}
+		}
+		ArrayList<City> provFilter = new ArrayList<City>();
+		for (City city : filter) {
+			if (city.getProvince().getProvinceCode().equalsIgnoreCase(provinceCode)) {
+				result += city.toString() + "\n";
+				provFilter.add(city);
+			}
+		}
+		CityGraph G = new CityGraph(provFilter);
+			System.out.println(G.getRelatedCities(provFilter.get(1)));
+		
+		return result;
+	}
+	
 	public static void main(String[] args) throws IOException {
-		String s = new Searcher().searchProvinceCity("architects","on");
+		//String s = new Searcher().searchProvinceCity("architects","on");
+		String s = new Searcher().searchIncomeCity("architects","on","30000");
 		System.out.println(s);
 	}
 }
