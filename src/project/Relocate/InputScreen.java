@@ -34,10 +34,10 @@ public class InputScreen {
 	JTextField textIncome = new JTextField("Annual Income");
 	final JTextArea textArea = new JTextArea(5, 20);
 	JButton button = new JButton("Search");
-	//FileWriter output;
+	FileWriter output;
 
 	public InputScreen() throws IOException {
-		PrintWriter output = new PrintWriter("data/a3_out.txt");
+		output = new FileWriter("data/output.txt");
 		textArea.setEditable(false);
 		button.setPreferredSize(new Dimension(200, 50));
 		panel.setLayout(new BorderLayout());
@@ -59,13 +59,18 @@ public class InputScreen {
 					} else if (textProvince.getText().equals("Province Code")
 							&& textIncome.getText().equals("Annual Income") || textIncome.getText().equals("")
 							|| textProvince.getText().equals("")) {
-						output.println(search.searchCity(textName.getText()));
+						System.out.println(search.searchCity(textName.getText()));
+						output.write(search.searchCity(textName.getText()));
 					} else if (textIncome.getText().equals("Annual Income")) {
-						output.println(search.searchProvinceCity(textName.getText(), textProvince.getText()));
+						System.out.println(search.searchProvinceCity(textName.getText(), textProvince.getText()));
+						output.write(search.searchProvinceCity(textName.getText(), textProvince.getText()));
 					} else {
-						output.println(search.searchIncomeCity(textName.getText(), textProvince.getText(),
+						System.out.println(search.searchIncomeCity(textName.getText(), textProvince.getText(),
+								textIncome.getText()));
+						output.write(search.searchIncomeCity(textName.getText(), textProvince.getText(),
 								textIncome.getText()));
 					}
+					output.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -73,7 +78,7 @@ public class InputScreen {
 			}
 		});
 
-		output.close();
+		
 		panel.add(label, BorderLayout.NORTH);
 		panel.add(textName, BorderLayout.CENTER);
 		panel.add(textProvince, BorderLayout.CENTER);

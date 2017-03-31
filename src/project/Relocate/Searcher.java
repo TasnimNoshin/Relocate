@@ -72,8 +72,11 @@ public class Searcher {
 				provFilter.add(city);
 			}
 		}
+		result+="\n";
 		CityGraph G = new CityGraph(provFilter);
-			System.out.println(G.getRelatedCities(provFilter.get(1)));
+		for(int i = 0; i < provFilter.size();i++){
+			result+=G.getRelatedCities(provFilter.get(i))+"\n";
+		}
 		
 		return result;
 	}

@@ -46,8 +46,8 @@ public class City implements Comparable {
 
 	@Override
 	public String toString() {
-		return income+" {City Name: " + cityName + 
-				"; " + cityOutlook + "}";
+		return "City : " + cityName + "\n"+"Province: "+province.getProvinceCode() +"\n"+ cityOutlook
+				+ "\nAverage Median Income: "+income+"\n";
 	}
 	
 	/**

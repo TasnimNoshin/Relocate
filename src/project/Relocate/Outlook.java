@@ -27,6 +27,6 @@ public class Outlook {
 	
 	@Override
 	public String toString() {
-		return "<Outlook: " + potential + "; Trend: " + trend + ">";
+		return "<Outlook: " + potential + ">\n<Trend: " + trend + ">";
 	}
 }
