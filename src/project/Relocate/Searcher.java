@@ -66,11 +66,14 @@ public class Searcher {
 			}
 		}
 		ArrayList<City> provFilter = new ArrayList<City>();
+		int n = 0;
 		for (City city : filter) {
 			if (city.getProvince().getProvinceCode().equalsIgnoreCase(provinceCode)) {
 				result += city.toString() + "\n";
 				provFilter.add(city);
+				n++;
 			}
+			if(n==5) break;
 		}
 		result+="\n";
 		CityGraph G = new CityGraph(provFilter);

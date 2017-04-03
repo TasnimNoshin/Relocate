@@ -55,12 +55,15 @@ public class InputScreen {
 				try {
 					Searcher search = new Searcher();
 					if (textName.getText().equals("Job Name")) {
-						System.out.println("Try again");
+						System.out.println("Job not found.");
 					} else if (textProvince.getText().equals("Province Code")
 							&& textIncome.getText().equals("Annual Income") || textIncome.getText().equals("")
 							|| textProvince.getText().equals("")) {
 						System.out.println(search.searchCity(textName.getText()));
 						output.write(search.searchCity(textName.getText()));
+					}else if (textProvince.getText().equals("Province Code")
+									|| textProvince.getText().equals("")) {
+							System.out.println("Invalid Province.");
 					} else if (textIncome.getText().equals("Annual Income")) {
 						System.out.println(search.searchProvinceCity(textName.getText(), textProvince.getText()));
 						output.write(search.searchProvinceCity(textName.getText(), textProvince.getText()));
