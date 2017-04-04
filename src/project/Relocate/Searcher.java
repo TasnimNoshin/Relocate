@@ -45,8 +45,13 @@ public class Searcher {
 		if (index == -1) return "Job not found.";
 		String result = "";
 		ArrayList<City> cities = jobs.get(index).sortCity();
+		int n =0;
 		for (City city : cities) {
-			if(city.getProvince().getProvinceCode().equalsIgnoreCase(provinceCode)) result += city.toString() + "\n";
+			if(city.getProvince().getProvinceCode().equalsIgnoreCase(provinceCode)) {
+				result += city.toString() + "\n";
+				n++;
+			}
+			if(n==5) break;
 		}
 		return result;
 	}
