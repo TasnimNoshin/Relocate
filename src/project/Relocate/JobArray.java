@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class JobArray {
-    ArrayList<Job> jobs;
-	Income incomeFetcher;
-	ArrayList<CityIncome> income;
-	ProvinceMap map;
+    private ArrayList<Job> jobs;
+    private Income incomeFetcher;
+    private ArrayList<CityIncome> income;
+    private ProvinceMap map;
     /**
      * 
      * @param data Type: OutlookData
@@ -77,11 +77,4 @@ public class JobArray {
 //    	toJob(od);
     	return jobs;
     }
-    
-//    public void hasher() {
-//    	HashMap<String> map = new HashMap<String>(getJobArray().length);   // TODO
-//    	for (Job j: getJobArray()) {
-//			map.put(j.getName());
-//		}	
-//    }
 }

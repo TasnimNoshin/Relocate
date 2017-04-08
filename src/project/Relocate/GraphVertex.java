@@ -1,6 +1,6 @@
 package project.Relocate;
 
-//We will use the array list provided as part of the standard Java library to store adjacent edges
+// We will use the array list provided as part of the standard Java library to store adjacent edges
 import java.util.ArrayList;
 
 /**

@@ -42,9 +42,9 @@ public class ProvinceMap<K, V> {
 		return backward.get(key);
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException {
-		ProvinceMap m = new ProvinceMap();
-		System.out.println(m.getBackward("NB"));
-	}
+//	public static void main(String[] args) throws FileNotFoundException {
+//		ProvinceMap m = new ProvinceMap();
+//		System.out.println(m.getBackward("NB"));
+//	}
 	
 }

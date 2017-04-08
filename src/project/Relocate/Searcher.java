@@ -7,16 +7,14 @@ public class Searcher {
 	JobArray jobsFetcher;
 	ArrayList<Job> jobs;
 	/**
-	 * This m TODO Patrick!
-	 * @param jobName Datatype: String
-	 * @throws IOException 
+	 * This method returns the result of searching all cities by jobname
+	 * @param jobName Datatype: String - The name of the job to search for
+	 * @throws IOException Thrown when a necessary file is not found
+	 * @return A string containing the results of running the search
 	 */
 	Searcher () throws IOException {
 		jobsFetcher = new JobArray();
-
 		jobs = jobsFetcher.getJobArray();
-
-		
 	}
 	
 	public String searchCity(String jobName) throws IOException {
@@ -89,9 +87,9 @@ public class Searcher {
 		return result;
 	}
 	
-	public static void main(String[] args) throws IOException {
-		//String s = new Searcher().searchProvinceCity("architects","on");
-		String s = new Searcher().searchIncomeCity("architects","on","30000");
-		System.out.println(s);
-	}
+//	public static void main(String[] args) throws IOException {
+//		//String s = new Searcher().searchProvinceCity("architects","on");
+//		String s = new Searcher().searchIncomeCity("architects","on","30000");
+//		System.out.println(s);
+//	}
 }

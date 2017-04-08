@@ -3,7 +3,7 @@ package project.Relocate;
 import java.util.ArrayList;
 
 //cityName represents one city only
-//cityName also accept a province name whne the city name is null
+//cityName also accept a province name when the city name is null
 public class CityIncome {
 
 	private final String cityName;

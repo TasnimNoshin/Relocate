@@ -30,7 +30,7 @@ public class City implements Comparable {
 		this.cityOutlook = new Outlook(this, potential, trend);
 	}
 	
-	public int searchCity(ArrayList<City> cities) {
+	protected int searchCity(ArrayList<City> cities) {
 		int i = 0;
 		for (City city : cities) {
 			if (this.cityName == city.getCityName())
@@ -40,9 +40,9 @@ public class City implements Comparable {
 		return -1;
 	}
 	
-	public int hashCode() {
-		return cityName.hashCode();
-	}
+//	public int hashCode() {
+//		return cityName.hashCode();
+//	}
 
 	@Override
 	public String toString() {
@@ -63,7 +63,6 @@ public class City implements Comparable {
 	}
 
 	public long getIncome() {
-		
 		return (long) income;
 	}
 }
