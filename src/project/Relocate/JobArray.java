@@ -32,7 +32,7 @@ public class JobArray {
             if(index == -1) {
             	// Province City Potential Trend
             	//get the province name by province abbr
-            	String provinceName = map.getBackward(od.getProvAbbr());
+            	String provinceName = map.getProvName(od.getProvAbbr());
             	Province province = new Province(od.getProvAbbr(), newJob);
             	int i = incomeFetcher.searchCity(provinceName);
             	//get the avrIncome for a province
@@ -52,7 +52,7 @@ public class JobArray {
             } else {
                 Job j = jobs.get(index);
             	//get the province name by province abbr
-            	String provinceName = map.getBackward(od.getProvAbbr());
+            	String provinceName = map.getProvName(od.getProvAbbr());
                 Province province = new Province(od.getProvAbbr(), j);
             	int i = incomeFetcher.searchCity(provinceName);
             	//get the avrIncome for a province

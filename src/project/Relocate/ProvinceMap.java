@@ -34,11 +34,11 @@ public class ProvinceMap<K, V> {
 		abbrName.put(value, key);
 	}
 
-	public String getCityAbbr(String key) {
+	public String getProvAbbr(String key) {
 		return nameAbbr.get(key);
 	}
 
-	public String getCityName(String key) {
+	public String getProvName(String key) {
 		return abbrName.get(key);
 	}
 	
