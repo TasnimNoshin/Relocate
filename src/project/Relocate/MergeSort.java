@@ -1,5 +1,8 @@
 package project.Relocate;
-
+/**
+ * @author Jenny Feng Chen
+ * This class would be use for sorting cities by outlook
+ */
 import java.util.ArrayList;
 
 public class MergeSort {

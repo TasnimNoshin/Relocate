@@ -20,7 +20,7 @@ public class Income {
 	}
 
 	// transfer CityData to CityIncome
-	public void toCityIncome(CityData[] c) {
+	private void toCityIncome(CityData[] c) {
 		int index;
 		for (CityData cd : c) {
 			CityIncome cI = new CityIncome(cd.getCity(), cd.getProvince());

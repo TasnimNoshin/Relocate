@@ -68,9 +68,10 @@ public class CityGraph {
 	 */
 	public String getRelatedCities(City toFind){
 		GraphVertex desiredVertex = null;
-		for(GraphVertex w : vertices){
-			//Scan for the city in the graph
-			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName()) && w.getCity().getProvince().equals(toFind.getProvince())){
+		for (GraphVertex w : vertices) {
+			// Scan for the city in the graph
+			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName())
+					&& w.getCity().getProvince().equals(toFind.getProvince())) {
 				desiredVertex = w;
 			}
 		}
