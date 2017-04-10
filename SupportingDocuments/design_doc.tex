@@ -35,6 +35,29 @@
 \newpage
 \section*{Module Decomposition}
 why we used the modules we did and why we divided them up the way we did
+The aim of the module decomposition was to organize information in a logical way such that it is easily accessible and that the overall structure allows more information to be easily added into the program. We considered the principles of seperation of concerns and information hiding in our design so that the security of the data is protected and information can be accessed in a minimalistic fashion.
+\\\\
+The following is a brief description of our classes, followed by a UML Classes Diagram to illustrate the relationship between our modules.
+\begin{itemize}
+\item City: This class represents a City, with fields identifying the name and the outlook.
+\item CityData: This class is an object represent each record of data in income.csv.
+\item CityGraph:
+\item CityIncome:
+\item GraphEdge:
+\item GraphVertex:
+\item Income:
+\item InputScreen: This class obtains inputs from a GUI and displays output in the console, as well as create a text file with the output data.
+\item Job: This class represents a Job, with fields for the name, and the provinces in which the job was available.
+\item JobArray: This class takes OutlookData objects and organizes them into the Job-Province-City-Outlook hierarchy for improved organization and sorting.
+\item MergeSort: This class sorts arraylists of Comparable objects using the merge sort algorithm.
+\item Outlook: This class represents an Outlook, with fields containing the potential and trend.
+\item OutlookData: This class is an object represent each record of data in outlook.csv.
+\item Parser: This class reads in data and creates CityData and OutlookData objects for each record in the data set.
+\item Province: This class represents a Province, with fields identifying the name, average potential, cities in the province and the job for which this Province object is an instance of.
+\item ProvinceMap: This class is a hash map that relates the province IDs (ON, BC, etc.) to the province names (Ontario, British Columbia, etc.).
+\item Searcher: This class takes in input information from the InputScreen class and searches through the Job-Province-City-Outlook hierarchy for results.
+\end{itemize}
+
 
 \newpage
 \section*{Public Methods Description}\label{public}
