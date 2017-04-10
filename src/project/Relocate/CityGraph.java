@@ -11,8 +11,11 @@ import java.util.ArrayList;
  */
 public class CityGraph {
 	
-	private final double SCALING_FACTOR = 1; //The intervals at which to create new clusters, these must be able to evenly divide 3 (i.e. 0.1/0.25/0.5 are good, 0.262362 is bad). To avoid issues, use numbers that can be formed with 1/(2^n).
-	private final int CITIES_TO_RETURN = 2; //How many cities should be returned when searching for cities of similair income
+	// The intervals at which to create new clusters, these must be able to evenly divide 3 (i.e. 0.1/0.25/0.5 are good, 0.262362 is bad). 
+	// To avoid issues, use numbers that can be formed with 1/(2^n).
+	private final double SCALING_FACTOR = 1;
+	//How many cities should be returned when searching for cities of similair income
+	private final int CITIES_TO_RETURN = 2; 
 	private ArrayList<GraphVertex> vertices;
 	/**
 	 * Uses a City ArrayList to construct the graph
@@ -65,9 +68,10 @@ public class CityGraph {
 	 */
 	public String getRelatedCities(City toFind){
 		GraphVertex desiredVertex = null;
-		for(GraphVertex w : vertices){
-			//Scan for the city in the graph
-			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName()) && w.getCity().getProvince().equals(toFind.getProvince())){
+		for (GraphVertex w : vertices) {
+			// Scan for the city in the graph
+			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName())
+					&& w.getCity().getProvince().equals(toFind.getProvince())) {
 				desiredVertex = w;
 			}
 		}

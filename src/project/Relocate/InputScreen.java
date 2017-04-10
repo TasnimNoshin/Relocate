@@ -61,7 +61,7 @@ public class InputScreen {
 							|| textProvince.getText().equals("")) {
 						System.out.println(search.searchCity(textName.getText()));
 						output.write(search.searchCity(textName.getText()));
-					}else if (textProvince.getText().equals("Province Code")
+					} else if (textProvince.getText().equals("Province Code")
 									|| textProvince.getText().equals("")) {
 							System.out.println("Invalid Province.");
 					} else if (textIncome.getText().equals("Annual Income")) {
@@ -75,7 +75,6 @@ public class InputScreen {
 					}
 					output.close();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -98,6 +97,5 @@ public class InputScreen {
 
 	public static void main(String[] args) throws IOException {
 		InputScreen screen = new InputScreen();
-
 	}
 }

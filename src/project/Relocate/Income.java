@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Income {
 
-	ArrayList<CityIncome> cities;
+	private ArrayList<CityIncome> cities;
 
 	public Income() throws IOException {
 		this.cities = new ArrayList<CityIncome>();
@@ -20,7 +20,7 @@ public class Income {
 	}
 
 	// transfer CityData to CityIncome
-	public void toCityIncome(CityData[] c) {
+	private void toCityIncome(CityData[] c) {
 		int index;
 		for (CityData cd : c) {
 			CityIncome cI = new CityIncome(cd.getCity(), cd.getProvince());
@@ -75,11 +75,11 @@ public class Income {
 		return cities;
 	}
 	
-	public static void main(String[] args) throws IOException {
-
-		Income n = new Income();
-		for(CityIncome e : n.cities){
-			System.out.println(e.getCityName()+" "+e.getAvgIncome());
-		}
-	}
+//	public static void main(String[] args) throws IOException {
+//
+//		Income n = new Income();
+//		for(CityIncome e : n.cities){
+//			System.out.println(e.getCityName()+" "+e.getAvgIncome());
+//		}
+//	}
 }
