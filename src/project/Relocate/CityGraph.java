@@ -11,11 +11,8 @@ import java.util.ArrayList;
  */
 public class CityGraph {
 	
-	// The intervals at which to create new clusters, these must be able to evenly divide 3 (i.e. 0.1/0.25/0.5 are good, 0.262362 is bad). 
-	// To avoid issues, use numbers that can be formed with 1/(2^n).
-	private final double SCALING_FACTOR = 1;
-	//How many cities should be returned when searching for cities of similair income
-	private final int CITIES_TO_RETURN = 2; 
+	private final double SCALING_FACTOR = 1; //The intervals at which to create new clusters, these must be able to evenly divide 3 (i.e. 0.1/0.25/0.5 are good, 0.262362 is bad). To avoid issues, use numbers that can be formed with 1/(2^n).
+	private final int CITIES_TO_RETURN = 2; //How many cities should be returned when searching for cities of similair income
 	private ArrayList<GraphVertex> vertices;
 	/**
 	 * Uses a City ArrayList to construct the graph
@@ -68,10 +65,9 @@ public class CityGraph {
 	 */
 	public String getRelatedCities(City toFind){
 		GraphVertex desiredVertex = null;
-		for (GraphVertex w : vertices) {
-			// Scan for the city in the graph
-			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName())
-					&& w.getCity().getProvince().equals(toFind.getProvince())) {
+		for(GraphVertex w : vertices){
+			//Scan for the city in the graph
+			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName()) && w.getCity().getProvince().equals(toFind.getProvince())){
 				desiredVertex = w;
 			}
 		}
@@ -102,5 +98,40 @@ public class CityGraph {
 			retString += c.toString() + "\n";
 		}
 		return retString;
+	}
+	
+////////////////////////////////////////TEST FUCNTION///////////////////////////////////////////////
+	//reduced version of the method to be used for testing
+	public ArrayList<City> getRelatedCitiesTest(City toFind){
+		GraphVertex desiredVertex = null;
+		for(GraphVertex w : vertices){
+
+			if (w.getCity() != null && w.getCity().getCityName().equals(toFind.getCityName()) && w.getCity().getProvince().equals(toFind.getProvince())){
+				desiredVertex = w;
+			}
+		}
+		if (desiredVertex == null){
+			return null; 
+		}
+
+		GraphVertex dummyNode = desiredVertex.getAdj().iterator().next().getConnection(desiredVertex);
+
+		ArrayList<Comparable> edges = new ArrayList<Comparable>();
+		for (GraphEdge e : dummyNode.getAdj()){
+
+			if (e.getConnection(dummyNode) != desiredVertex && e.getWeight() != -1){
+				edges.add(e);
+			}
+		}
+
+		MergeSort.sortMerge(edges, edges.size());
+
+		ArrayList<City> retArray = new ArrayList<City>();
+		for (int i = 0; i < Math.min(CITIES_TO_RETURN,edges.size()); i++){
+			GraphEdge e = (GraphEdge) edges.get(i);
+			retArray.add(e.getConnection(dummyNode).getCity());
+		}
+
+		return retArray;
 	}
 }

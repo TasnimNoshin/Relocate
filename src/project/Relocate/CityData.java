@@ -1,7 +1,5 @@
 package project.Relocate;
 
-import java.io.IOException;
-
 public class CityData {
 	private final int year;
 	private final String city;

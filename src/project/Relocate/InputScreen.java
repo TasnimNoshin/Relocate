@@ -55,19 +55,24 @@ public class InputScreen {
 				try {
 					Searcher search = new Searcher();
 					if (textName.getText().equals("Job Name")) {
+						//if the search is empty
 						System.out.println("Job not found.");
 					} else if (textProvince.getText().equals("Province Code")
 							&& textIncome.getText().equals("Annual Income") || textIncome.getText().equals("")
 							|| textProvince.getText().equals("")) {
+						//if only the job name is specified
 						System.out.println(search.searchCity(textName.getText()));
 						output.write(search.searchCity(textName.getText()));
-					} else if (textProvince.getText().equals("Province Code")
+					}else if (textProvince.getText().equals("Province Code")
 									|| textProvince.getText().equals("")) {
+						//if only the province is not entered (cannot search a job and an income together without a province)
 							System.out.println("Invalid Province.");
 					} else if (textIncome.getText().equals("Annual Income")) {
+						//if a job and province are searched together
 						System.out.println(search.searchProvinceCity(textName.getText(), textProvince.getText()));
 						output.write(search.searchProvinceCity(textName.getText(), textProvince.getText()));
 					} else {
+						//if all three are specified by the user
 						System.out.println(search.searchIncomeCity(textName.getText(), textProvince.getText(),
 								textIncome.getText()));
 						output.write(search.searchIncomeCity(textName.getText(), textProvince.getText(),
@@ -75,6 +80,7 @@ public class InputScreen {
 					}
 					output.close();
 				} catch (IOException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -97,5 +103,6 @@ public class InputScreen {
 
 	public static void main(String[] args) throws IOException {
 		InputScreen screen = new InputScreen();
+
 	}
 }

@@ -1,11 +1,7 @@
 package project.Relocate;
 
 import java.util.ArrayList;
-/**
- * 
- * @author Jenny Feng Chen, Tasnim Bari Noshin
- *
- */
+
 //cityName represents one city only
 //cityName also accept a province name when the city name is null
 public class CityIncome {

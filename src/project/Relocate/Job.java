@@ -67,7 +67,7 @@ public class Job {
 	 * 
 	 * @return An array of all cities in which the job exists irrespective of their provinces
 	 */
-	public ArrayList<City> getCities() {
+	public ArrayList<City> getCities() {		// TODO: Is there a better way to do this?
 		ArrayList<City> allCities = new ArrayList<City>();
 		for (Province province : this.provinces) 
 			for (City city : province.getCities())
@@ -88,7 +88,7 @@ public class Job {
 	 * Type: Job array
 	 * @return Index of this job in jobs, -1 if job does not exist
 	 */
-	protected int searchJob(ArrayList<Job> jobs) {
+	public int searchJob(ArrayList<Job> jobs) {
 		int i = 0;
 		for (Job job : jobs) {
 			if (this.name.equalsIgnoreCase(job.getName()) || job.getName().toLowerCase().contains(name.toLowerCase()))

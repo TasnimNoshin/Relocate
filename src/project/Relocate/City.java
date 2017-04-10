@@ -30,7 +30,7 @@ public class City implements Comparable {
 		this.cityOutlook = new Outlook(this, potential, trend);
 	}
 	
-	protected int searchCity(ArrayList<City> cities) {
+	public int searchCity(ArrayList<City> cities) {
 		int i = 0;
 		for (City city : cities) {
 			if (this.cityName == city.getCityName())
@@ -39,10 +39,7 @@ public class City implements Comparable {
 		}
 		return -1;
 	}
-	
-//	public int hashCode() {
-//		return cityName.hashCode();
-//	}
+
 
 	@Override
 	public String toString() {
@@ -54,7 +51,6 @@ public class City implements Comparable {
 	 * @param that: Type: City
 	 * @return If this city has a higher potential than that city, return 1. If lower, return -1. Else: return 0.
 	 */
-	@Override
 	public int compareTo(Object thatC) {
 		City that = (City) thatC;
 		if (this.cityOutlook.getPotential() == that.getOutlook().getPotential()) return 0;

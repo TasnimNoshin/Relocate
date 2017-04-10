@@ -21,9 +21,7 @@ public class OutlookData {
 	 * @param locName The name of the location for this outlook
 	 */
 	
-	public OutlookData(int c, String title, int pot, String cp, 
-					   String tr, String trd, String lang, int provCd, 
-					   String prov, int code, String locName, int cityID){
+	public OutlookData(int c, String title, int pot, String cp, String tr, String trd,String lang, int provCd, String prov, int code, String locName, int cityID){
 		NOC = c;
 		Title = title;
 		potential = pot;

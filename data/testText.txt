@@ -1,0 +1,15 @@
+searchCityTests:
+108,203,205,-1,224,319,-1,311,87,506,305,169,-1
+Civil Engineers,ON,100000
+Elementary School and Kindergarten Teachers,NB,35000
+Psychologists,QC,23456.789
+Clowns,SK,34567
+Other Instructors,PE,10000
+Contractors and Supervisors,NU,40000
+Hot Dog Vendors,NL,1000000.01
+Specialized Cleaners,NT,20000
+Library Clerks,MB,15000
+Woodworking Machine Operators,AB,80000
+Service Station Attendants,BC,50000
+Pharmacists,NS,1500000
+Hockey Analyst,YT,0

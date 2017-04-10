@@ -47,9 +47,9 @@ public class Province implements Comparable {
 		return this.provinceTrends;
 	}
 	
-//	public double getProvinceName() {
-//		return provinceIncome;
-//	}
+	public double getProvinceName() {
+		return provinceIncome;
+	}
 	
 	public double getProvinceIncome() {
 		return provinceIncome;
@@ -99,7 +99,7 @@ public class Province implements Comparable {
 	 * @return Search this province in the array of provinces, and find the index of the province.
 	 * If this province does not exist in the array, then return -1.
 	 */
-	protected int searchProvince(ArrayList<Province> provinces) {
+	public int searchProvince(ArrayList<Province> provinces) {
 		int i = 0;
 		for (Province province : provinces) {
 			if (this.provinceCode.equalsIgnoreCase(province.getProvinceCode()))
@@ -116,7 +116,6 @@ public class Province implements Comparable {
 		MergeSort.sortMerge((ArrayList) cities, cities.size());
 	}
 	
-	@Override
 	public int compareTo(Object thatP) {
 		// compares this location to that location
 		// 2 symbolizes error in the compare method!
