@@ -3,10 +3,11 @@
 \usepackage{graphicx}
 \usepackage{paralist}
 \usepackage{amsfonts}
+\usepackage{graphicx}
 
 \oddsidemargin 0mm
 \evensidemargin 0mm
-\textwidth 160mm
+\textwidth 180mm
 \textheight 200mm
 \renewcommand\baselinestretch{1.0}
 
@@ -15,8 +16,14 @@
 
 \newcounter{stepnum}
 
-\title{Design Specifications Document \\ReLocate\\v}
-\author{COMP SCI 2XB3\\  Computer Science Practice and Experience: Binding Theory to Practice\\ \\Group 04\\Madeeha Khan, Tasnim Noshin, Umme Salma Gadriwala,\\ Jenny Feng Chen, Patrick Laskowski \\ \\ \\Department of Computer Science\\ McMaster University}
+\title{Software Specifications Document \\ReLocate\\version 3.2}
+
+\author{COMP SCI 2XB3\\  
+Computer Science Practice and Experience: Binding Theory to Practice\\ \\ \\
+Group 04\\Madeeha Khan, Tasnim Noshin, Umme Salma Gadriwala,\\ 
+Jenny Feng Chen, Patrick Laskowski \\ \\ \\
+Department of Computer Science\\ 
+McMaster University}
 
 \begin {document}
 
@@ -25,16 +32,28 @@
 \newpage
 \section*{Revisions}\label{revisions}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \newpage
 \section*{Contributions}\label{contributions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \newpage
 \section*{Executive Summary}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 \section*{Module Decomposition}
-why we used the modules we did and why we divided them up the way we did
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \newpage
 \section*{Public Methods Description}\label{public}
@@ -103,6 +122,7 @@ and assigns them to each of the field in city.
 greater than the weight of the given object return 1, else return -1.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{CityData.java}\label{cityd}
 This class represents a city with corresponding data from dataset of income.
@@ -174,6 +194,7 @@ and income to assign each field of the CityData object.
 \item Returns an integer holding the year the data was collected in.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{CityGraph.java}\label{graph}
 This class is used to create the actual undirected graph of the city.
@@ -213,7 +234,7 @@ Returns the sorted arrayList of cities as String.
 \item This is a reduced version of the above function that is used for testing, and does essentailly the same, except it returns the ArrayList instead of its String represenation
 \end{itemize}
 
-
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{CityIncome.java}\label{cityincome}
 This class represents a city with income from the income dataset.
@@ -261,6 +282,7 @@ city.
 \item Returns the average income of the city.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{GraphEdge.java}\label{edge}
 This class is used as an edge to connect two vertices.
@@ -303,6 +325,7 @@ filed if not, returns null else return the the one that is equal.
 of the given object return 1, else return -1.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{GraphVertex.java}\label{vertex}
 This class represents a vertex as a city, with its outlook and its adjacent vertices
@@ -330,6 +353,7 @@ getOutlook & ~ & double & ~\\
 \subsubsection*{Semantics}
 \subsubsection*{Access Routine Semantics}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Income.java}\label{income}
 This class holds an arrayList of type CityIncome.
@@ -363,7 +387,7 @@ when getting data from the Parser.
 \item For every city in $c$, it creates a new CityIncome object with that city's City and Province fields.
 \\if the city did not already exist in the array c, it adds the income to the city, and adds the city to the cities
 \\otherwise, it adds the income to the already existing city.
-\\If there is no city, and only a province,  FINISH
+\\If there is no city, and only a province,  it creates a City and adds it at the end of the ArrayList
 \end{itemize}
 \noindent searchCity($cityName$)
 \begin{itemize}
@@ -376,6 +400,7 @@ but not found in the arraylist.
 \item Return the arrayList of type CityIncome
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{InputScreen.java}\label{input}
 This class represents the GUI, where the user can enter the information they wish to find through the job search.
@@ -409,6 +434,7 @@ is displayed
 There is an IOException thrown if there is an issue with the output file for whatever reason.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Job.java}\label{job}
 This is the class representing a job. 
@@ -513,6 +539,7 @@ method to check their equality
 \item returns a String representation of the Job object, which includes the name and all the provinces it is in
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{JobArray.java}\label{jobarray}
 This class creates the array of Jobs that will later be searched to match a job inputted by the user and find its information.
@@ -548,6 +575,7 @@ getJobArray & ~ & ArrayList$<$Job$>$ & ~\\
 \item returns the job array
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{MergeSort.java}\label{sort}
 This class sorts an arrayList where extends the comparable type.
@@ -570,6 +598,7 @@ sortMerge & ArrayList$<$Comparable$>$, int & ~ & ~\\
 the same size with each of the element initializing to null. Then merge sort the list.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Outlook.java}\label{outlook}
 This class gives the outlook for a City, which is the combination of its potential and its trend.
@@ -615,6 +644,7 @@ toString & ~ & String & ~\\
 \item returns a string representation of each Outlook object, with its potential, and trend.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{OutlookData.java}\label{outlookd}
 This is the info scraped from the outlooks.csv file. Each instance of his class represents a line from that file.
@@ -709,6 +739,7 @@ getCityID & ~ & int & ~\\
 \item returns int $cityID$
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Parser.java}\label{p
 arser}
@@ -740,6 +771,7 @@ getCityDataArray & ~ & CityData[] & IOException\\
 \\this method deals with blank lines and fills in '0' for them, as well as inappropriate types (if the file provides a String instead of an int, it is given an error value of int -1).
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Province.java}\label{prov}
 This class represents a province, and contains all the information available about provinces from the combination of both datasets
@@ -854,6 +886,7 @@ setProvinceIncome & ~ & double & ~\\
 \item Sets the income to the specified value.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{ProvinceMap.java}\label{provmap}
 This class holds two maps which the key of one map is province name and value is the abbreviation
@@ -895,6 +928,7 @@ a province name and an abbreviation, split them by a comma.
 \item This method takes a string of abbreviation and returns the corresponding province name.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{Searcher.java}\label{search}
 This class is where the searching happens. It has different methods for different kinds of searches, depending on what information the user gives, and also has reduced versions of the methods for testing. It throws an IOException because it has cennections to the Parser, which uses files.
@@ -952,7 +986,7 @@ searchIncomeProvinceTest & String, String, String & ArrayList$<$City$>$ & IOExce
 \\It would return an empty ArrayList if the job did not exist.
 \end{itemize}
 
-
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{TestGraph.java}\label{testg}
 This class tests the CityGraph and takes its input from a text file testText.txt
@@ -976,7 +1010,7 @@ test & ~ & ~ & IOException\\
 \\To handle jobs that did not have any related cities, the boolean value was switched back to true if the ArrayList returned by getRelatedCitiesTest() had size of 0, since that was the expected result.
 \end{itemize}
 
-
+%%%%%%%%%%%%%%%%%%%%%
 
 \subsection*{TestSearch.java}\label{tests}
 This class tests the Searcher and takes its input from a text file testText.txt
@@ -1015,19 +1049,33 @@ incomeTest & ~ & ~ & Exception\\
 \\If the job does not exist, either in that province or income range, or at all, the boolean value is switched back to true if the size of the result ArrayList is 0, since that is expected.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section*{Uses Relationship}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth] {Group04_Uses_Diagram.pdf}
+  \caption{Uses Case Diagram for ReLocate product.}
+  \label{fig:uses}
+\end{figure}
+
+\begin{figure}
+\caption{UML class diagram with relations. Figure is only visible from 250\%+ zoom}
+  \hspace*{-4.4cm}\includegraphics[width = 260mm]{Group04_Classes_Diagram.pdf}
+
+\end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section*{Traceability Matrix}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 
-\section{Private Methods Description}\label{private}
+\section*{Private Methods Description}
 \subsection*{City.java}\label{pcity}
 
 \subsubsection*{Semantics}
@@ -1211,8 +1259,8 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 	private final String $f$ = "data/provinces.txt"\\
-	private Map$<$String,String$>$ $forward$ = new Hashtable<String,String>()\\
-	private Map$<$String,String$>$ $backward$ = new Hashtable<String,String>()
+	private Map$<$String,String$>$ $forward$ = new Hashtable$<$String,String$>$()\\
+	private Map$<$String,String$>$ $backward$ = new Hashtable$<$String,String$>$()
 \subsubsection*{Access Routine Semantics}
 
 
@@ -1221,11 +1269,11 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 \subsubsection*{Access Routine Semantics}
-		JobArray $jobsFetcher$;
-		ArrayList$<$Job$>$ $ jobs$;
+		JobArray $jobsFetcher$\\
+		ArrayList$<$Job$>$ $ jobs$
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section*{Review of Design}
