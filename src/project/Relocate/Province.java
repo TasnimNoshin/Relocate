@@ -47,10 +47,6 @@ public class Province implements Comparable {
 		return this.provinceTrends;
 	}
 	
-	public double getProvinceName() {
-		return provinceIncome;
-	}
-	
 	public double getProvinceIncome() {
 		return provinceIncome;
 	}
