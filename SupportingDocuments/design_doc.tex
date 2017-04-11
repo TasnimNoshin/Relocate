@@ -73,6 +73,7 @@ Jenny Feng Chen &Programmer, Tester, \\&Documenter  &  Wrote sorting algorithm& 
 
 \newpage
 \section*{Executive Summary}
+Canada has a growing problem with involuntary part time worker and new immigrants unable to find work. Relocate aims to solve these problems by using open datasets to provide information on where somebody should move to find a job. Relocate gives users the option to search for a specific job, and optionally filter by province and a minimum median income for any cities Relocate recommends them to move to. Once Relocate is given these parameters, it will combine a dataset of projected job outlooks along with data regarding income statistics in Canadian cities to recommend to the user a city to move to that gives them the best chance of finding employment capable of covering their costs of living. For each city it recommends, Relocate provides the city’s name, province, outlook ranking, a reason for the assigned ranking, and the city’s average median income. Relocate is also capable of providing information on cities that are closely related to these cities based on outlook and income so that the user is capable of making a well informed decision on where to relocate to. These results are all saved to a text file on the user’s computer so that they may reference them again at any time without having to run the program again.
 
 
 
@@ -1121,6 +1122,27 @@ incomeTest & ~ & ~ & Exception\\
 
 \newpage
 \section*{Traceability Matrix}
+\begin{tabular}{| p{10cm} | p{7cm} |}
+\hline
+\textbf{Requirement} & \textbf{Module(s)} \\
+\hline
+Upon entering the application, user should be greeted with a GUI asking them to input their search filters, the user must input a job name they are interested in searching for, but optionally they may input a province code (ON,BC, etc.) and a minimum average income for the city. & InputScreen \\
+\hline
+If the user does not wish to filter by province code or income, they may leave the fields untouched to signify this & InputScreen \\
+\hline
+Once the user has completed constructing their search query, they will press a button labelled “Search” to begin the search & InputScreen \\
+\hline
+The program will read the datasets in and convert them to objects for easier access & Parser, OutlookData, CityData \\
+\hline
+The program will search according to the user’s criteria and assign outlooks and income to each city & City, Income, Job, JobArray,Outlook, Province, ProvinceMap, Searcher\\
+\hline
+The program will rank the cities according to their outlook & MergeSort, Outlook, City \\
+\hline
+The program will also find cities related to the current city via graphing algorithm & CityGraph, GraphEdge, GraphVertex \\
+\hline
+When the search is complete, the results of the search will be printed out to the console. These results will consist of the city name, it’s province, a numerical ranking for the job’s outlook in this city, the reasoning for this outlook (pulled from the dataset), and the average median income of the city & InputScreen \\
+\hline
+\end{tabular}
 
 
 \newpage
@@ -1345,6 +1367,19 @@ removeUnnecessaryCharacters & String & String & ~\\
 
 \newpage
 \section*{Review of Design}
+Elements of the design that were done well:\\
+\begin{itemize}
+\item There is a clear separation of concerns in the data structures - each object represents one particular piece of information such as a job or a city, and stores the information related to that object. This preserves encapsulation.
+\item The graph ADT is well designed - it uses the features provided by the object oriented programming paradigm to turn every piece of the graph into it’s own object and store data relevant to its operations inside these objects.
+\item Implementing MergeSort in it’s own class was a good idea, this allowed it to be re-used by several other classes which needed sorting capabilities
+\item The design is extendable, more features can be added by adding classes which implement the necessary functionality, and then using the searcher class to pass the list of cities being considered to the new class
+\end{itemize}
 
+Elements of the design that were done poorly: \\
+\begin{itemize}
+\item There were more data structures than necessary - rather than having the parser go from the datasets to a CityData object to finally a City object, it would have been better to make it go directly to a City object.
+\item A lot of the data structures were made into separate objects when it was not really necessary. For instance, rather than making a city’s Outlook an entirely separate entity, it would have been better to directly include the relevant information in City because in reality the outlook is a property of the city
+\item The flow of data inside the program is confusing, in an ideal situation the Searcher would have handled creating all data structures but instead parts of the data are populated in unusual places. For instance, a city’s outlook is calculated and placed inside the City object inside the JobArray class, which does not make much sense and should have been done inside Searcher instead.
+\end {itemize}
 
 \end{document}
