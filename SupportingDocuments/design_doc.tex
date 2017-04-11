@@ -84,11 +84,11 @@ The following is a brief description of our classes, followed by a UML Classes D
 \begin{itemize}
 \item City: This class represents a City, with fields identifying the name and the outlook.
 \item CityData: This class is an object represent each record of data in income.csv.
-\item CityGraph:
-\item CityIncome:
-\item GraphEdge:
-\item GraphVertex:
-\item Income:
+\item CityGraph: This class will be used to create the actual undirected graph of the City.
+\item CityIncome: This class represents a city with income different from City object.
+\item GraphEdge: This class is used as an edge to connect two vertices.
+\item GraphVertex :This class will be used as the vertices of the graph.
+\item Income: This class transfers from a data type to a new data type by reorganizing the data and it holds an arrayList of the data. 
 \item InputScreen: This class obtains inputs from a GUI and displays output in the console, as well as create a text file with the output data.
 \item Job: This class represents a Job, with fields for the name, and the provinces in which the job was available.
 \item JobArray: This class takes OutlookData objects and organizes them into the Job-Province-City-Outlook hierarchy for improved organization and sorting.
@@ -163,17 +163,18 @@ and assigns them to each of the field in city.
 \end{itemize}
 \noindent searchCity($cities$)
 \begin{itemize}
-\item This method search the city in the given list of cities.
+\item This method search the city in the given list of cities. For each city in the given list, if it exists, returns the corresponding index else returns -1.
 \\Returns the index of the city in the list if found else returns -1.
 \end{itemize}
 \noindent toString()
 \begin{itemize}
-\item Returns the representation of the city as string.
+\item Creates a string concatinating cityName, provinceCode, cityOutlook and income. 
+\\Returns the representation of the city as string.
 \end{itemize}
 \noindent compareTo($thatC$)
 \begin{itemize}
 \item If the values of outlook of the two objects are equal return 0. If the value of outlook of this object is
-greater than the weight of the given object return 1, else return -1.
+greater than the outlookk of the given object return 1, else return -1.
 \end{itemize}
 
 
@@ -347,7 +348,7 @@ GraphEdge & GraphVertex, GraphVertex, double & ~ & ~\\
 \hline
 getConnection & GraphVertex & GraphVertex & ~\\
 \hline
-getWeight & ~ & long & ~\\
+getWeight & ~ & double & ~\\
 \hline
 compareTo & Object & int & ~\\
 \hline
@@ -387,7 +388,7 @@ This class represents a vertex as a city, with its outlook and its adjacent vert
 \hline
 GraphVertex & City, double & GraphVertex & ~\\
 \hline
-connect & GraphVertex, long & ~ & ~\\
+connect & GraphVertex, double & ~ & ~\\
 \hline
 getAdj & ~ & Iterable$<$GraphEdge$>$ & ~\\
 \hline
@@ -401,7 +402,30 @@ getOutlook & ~ & double & ~\\
 
 \subsubsection*{Semantics}
 \subsubsection*{Access Routine Semantics}
-
+\noindent GraphVertex($city, outlook$)
+\begin{itemize}
+\item This constructs a vertex by using a City object and the outlook of the City object. Creates an empty arrayList of adjacent edges.
+\end{itemize}
+\noindent getConnect($other, d$)
+\begin{itemize}
+\item It takes a GraphVertex object and the weight of the edge between this vertex and that vertex, then creates a GraphEdge object. Finally adds to the adjacency edges.
+\end{itemize}
+\noindent getAdj()
+\begin{itemize}
+\item Return the list of iterable adjacency edges.
+\end{itemize}
+\noindent getCityName()
+\begin{itemize}
+\item Returns the name of the city.
+\end{itemize}
+\noindent getCity()
+\begin{itemize}
+\item Returns the City object itself.
+\end{itemize}
+\noindent getOutlook()
+\begin{itemize}
+\item Returns the noutlook of the city.
+\end{itemize}
 
 \subsection*{Income.java}\label{income}
 This class holds an arrayList of type CityIncome.
@@ -1165,7 +1189,7 @@ incomeTest & ~ & ~ & Exception\\
 \subsubsection*{State (Instance) Variables}
 	private GraphVertex $v$\\
 	private GraphVertex $w$\\
-	private long $weight$
+	private double $weight$
 \subsubsection*{Access Routine Semantics}
 
 
