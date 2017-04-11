@@ -29,10 +29,10 @@ public class GraphVertex {
 	/**
 	 * Connects this vertex to another vertex
 	 * @param other The other vertex to connect to
-	 * @param weight The weight of the connection as a long value
+	 * @param d The weight of the connection as a double value
 	 */
-	public void connect(GraphVertex other,long weight){ 
-		GraphEdge toAdd = new GraphEdge(this,other,weight);
+	public void connect(GraphVertex other,double d){ 
+		GraphEdge toAdd = new GraphEdge(this,other,d);
 		this.adj.add(toAdd);
 		other.adj.add(toAdd); //This is bidirectional so both vertices get the edge
 	}

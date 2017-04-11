@@ -8,18 +8,18 @@ package project.Relocate;
 public class GraphEdge implements Comparable{
 	private GraphVertex v;
 	private GraphVertex w;
-	private long weight;
+	private double weight;
 	
 	/**
 	 * Creates a new connection between two vertices
 	 * @param v The first vertex to connect
 	 * @param w The second vertex to connect
-	 * @param weight A long value that stores the weight of the node
+	 * @param d A long value that stores the weight of the node
 	 */
-	public GraphEdge(GraphVertex v, GraphVertex w, long weight){
+	public GraphEdge(GraphVertex v, GraphVertex w, double d){
 		this.v = v;
 		this.w = w;
-		this.weight = weight;
+		this.weight = d;
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class GraphEdge implements Comparable{
 	 * Returns the weight of this edge
 	 * @return A long value holding the weight of this edge
 	 */
-	public long getWeight(){
+	public double getWeight(){
 		return weight;
 	}
 	

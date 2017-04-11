@@ -58,7 +58,7 @@ public class City implements Comparable {
 		return -1;
 	}
 
-	public long getIncome() {
-		return (long) income;
+	public double getIncome() {
+		return income;
 	}
 }
