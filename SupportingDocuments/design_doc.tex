@@ -1133,8 +1133,7 @@ incomeTest & ~ & ~ & Exception\\
 	private final String $cityName$\\
 	private Province $province$\\
 	private Outlook $cityOutlook$\\
-	private double $income$
-\subsubsection*{Access Routine Semantics}
+	private double $income$\\
 
 
 \subsection*{CityData.java}\label{pcityd}
@@ -1148,8 +1147,7 @@ incomeTest & ~ & ~ & Exception\\
 	private final String $DataType$\\
 	private final String $Vector$\\
 	private final double $Coordinate$\\
-	private final double $Income$
-\subsubsection*{Access Routine Semantics}
+	private final double $Income$\\
 
 
 \subsection*{CityGraph.java}\label{pgraph}
@@ -1185,8 +1183,7 @@ crawlDummies & GraphVertex, double & GraphVertex & ~\\
 	private final String $cityName$\\
 	private String $province$\\
 	private ArrayList$<$Double$>$ $incomes$\\
-	private double $avgIncome$
-\subsubsection*{Access Routine Semantics}
+	private double $avgIncome$\\
 
 
 \subsection*{GraphEdge.java}\label{pedge}
@@ -1195,8 +1192,7 @@ crawlDummies & GraphVertex, double & GraphVertex & ~\\
 \subsubsection*{State (Instance) Variables}
 	private GraphVertex $v$\\
 	private GraphVertex $w$\\
-	private double $weight$
-\subsubsection*{Access Routine Semantics}
+	private double $weight$\\
 
 
 \subsection*{GraphVertex.java}\label{pvertex}
@@ -1205,8 +1201,7 @@ crawlDummies & GraphVertex, double & GraphVertex & ~\\
 \subsubsection*{State (Instance) Variables}
 	private City $city$\\
 	private double $outlook$\\
-	private ArrayList$<$GraphEdge$>$ $adj$
-\subsubsection*{Access Routine Semantics}
+	private ArrayList$<$GraphEdge$>$ $adj$\\
 
 
 \subsection*{Income.java}\label{pincome}
@@ -1214,8 +1209,7 @@ crawlDummies & GraphVertex, double & GraphVertex & ~\\
 
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
-ArrayList$<$CityIncome$>$ $cities$
-\subsubsection*{Access Routine Semantics}
+ArrayList$<$CityIncome$>$ $cities$\\
 
 
 \subsection*{Job.java}\label{pjob}
@@ -1223,9 +1217,7 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 	private final String $name$\\
-	private ArrayList$<$Province$>$ $provinces$
-
-\subsubsection*{Access Routine Semantics}
+	private ArrayList$<$Province$>$ $provinces$\\
 
 
 \subsection*{JobArray.java}\label{pjobarray}
@@ -1235,8 +1227,7 @@ ArrayList$<$CityIncome$>$ $cities$
     	ArrayList$<$Job$>$ $jobs$\\
 	Income $incomeFetcher$\\
 	ArrayList$<$CityIncome$>$ $income$\\
-	ProvinceMap $map$
-\subsubsection*{Access Routine Semantics}
+	ProvinceMap $map$\\
 
 
 \subsection*{MergeSort.java}\label{psort}
@@ -1274,17 +1265,14 @@ merge & ArrayList$<$Comparable$>$, int, int, int & ~ & ~\\
 \subsubsection*{State (Instance) Variables}
 	private int $potential$\\
 	private String $trend$\\
-	private City $city$
-\subsubsection*{Access Routine Semantics}
-
+	private City $city$\\
 
 \subsection*{OutlookData.java}\label{poutlookd}
 
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 	private final String $Title,CPP,Trends,TrendsDate,Lang,ProvAbbr,Location$\\
-	private final int $potential,code,provID, NOC, cityID$
-\subsubsection*{Access Routine Semantics}
+	private final int $potential,code,provID, NOC, cityID$\\
 
 
 \subsection*{Parser.java}\label{pparser}
@@ -1306,7 +1294,8 @@ removeUnnecessaryCharacters & String & String & ~\\
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 	private final String $outlookName$ = "data/outlooks.csv"\\
-	private final String $incomeName$ = "data/income.csv"
+	private final String $incomeName$ = "data/income.csv"\\
+
 \subsubsection*{Access Routine Semantics}
 
 \noindent splitLineForOutlook(String input)
@@ -1335,7 +1324,6 @@ removeUnnecessaryCharacters & String & String & ~\\
 	private Job $job$\\
 	private ArrayList$<$City$>$ $cities$\\
 	private ArrayList$<$String$>$ $provinceTrends$\\
-\subsubsection*{Access Routine Semantics}
 
 
 \subsection*{ProvinceMap.java}\label{pprovmap}
@@ -1351,9 +1339,8 @@ removeUnnecessaryCharacters & String & String & ~\\
 
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
-\subsubsection*{Access Routine Semantics}
-		JobArray $jobsFetcher$\\
-		ArrayList$<$Job$>$ $ jobs$
+	JobArray $jobsFetcher$\\
+	ArrayList$<$Job$>$ $ jobs$
 
 
 \newpage
