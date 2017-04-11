@@ -1160,17 +1160,23 @@ incomeTest & ~ & ~ & Exception\\
 \hline
 \textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
 \hline
-~ & ~ & ~ & ~\\
+crawlDummies & GraphVertex, double & GraphVertex & ~\\
 \hline
 \end{tabular}
 
 \subsubsection*{Semantics}
+
 \subsubsection*{State (Instance) Variables}
 	private final double $SCALING\_FACTOR$ = 1\\
 	private final int $CITIES\_TO\_RETURN$ = 2\\
 	private ArrayList$<$GraphVertex$>$ $vertices$
+
 \subsubsection*{Access Routine Semantics}
 
+\noindent crawlDummies(GraphVertex source, double targetValue)
+\begin{itemize}
+\item This method takes a GraphVertex source and a double targetValue as input and crawls up the graph to find the node to link an outlook to. If the source cannot be linked to an outlook, the method looks for a link recursively in vertices with value -1 which are adjacent to the source. Once it finds a match the appropriate GraphVertex is returned.
+\end{itemize}
 
 \subsection*{CityIncome.java}\label{pcityincome}
 
@@ -1241,9 +1247,9 @@ ArrayList$<$CityIncome$>$ $cities$
 \hline
 \textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
 \hline
-~ & ~ & ~ & ~\\
+sortMerge & ArrayList$<$Comparable$>$, int, int & ~ & ~\\
 \hline
-~ & ~ & ~ & ~\\
+merge & ArrayList$<$Comparable$>$, int, int, int & ~ & ~\\
 \hline
 \end{tabular}
 
@@ -1252,6 +1258,15 @@ ArrayList$<$CityIncome$>$ $cities$
 	private static ArrayList$<$Comparable$>$ $aux$
 \subsubsection*{Access Routine Semantics}
 
+\noindent sortMerge(ArrayList$<$Comparable$>$ x, int lo, int hi)
+\begin{itemize}
+\item This method takes an ArrayList$<$Comparable$>$ x, an int lo and an int hi as input. If hi is less than equal to lo then it ends the method. Otherwise, recursively splits and sorts the arrays. Then calls the method merge to merge the two halves together.
+\end{itemize}
+
+\noindent merge(ArrayList$<$Comparable$>$ x, int lo, int hi, int mid)
+\begin{itemize}
+\item This method takes an ArrayList$<$Comparable$>$ x, an int lo, an int hi and an int mid as input. This method uses extra memory to sort the array. First it creates an auxiliary array within the range of lo to hi and copies values in that range from x. Then within that range, it sorts the original array in ascending order.
+\end{itemize}
 
 \subsection*{Outlook.java}\label{poutlook}
 
@@ -1280,7 +1295,11 @@ ArrayList$<$CityIncome$>$ $cities$
 \hline
 \textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
 \hline
-~ & ~ & ~ & ~\\
+splitLineForOutlook & String & String[ ] & ~\\
+\hline
+cleanString & String & String & ~\\
+\hline
+removeUnnecessaryCharacters & String & String & ~\\
 \hline
 \end{tabular}
 
@@ -1289,6 +1308,21 @@ ArrayList$<$CityIncome$>$ $cities$
 	private final String $outlookName$ = "data/outlooks.csv"\\
 	private final String $incomeName$ = "data/income.csv"
 \subsubsection*{Access Routine Semantics}
+
+\noindent splitLineForOutlook(String input)
+\begin{itemize}
+\item This method takes a String input, which is input data from outlook.csv. This data holds all the information in single line. splitLineForOutlook method takes each line and returns an array of Strings with properly split data.
+\end{itemize}
+
+\noindent cleanString(String input)
+\begin{itemize}
+\item This method takes a String input as input and returns a String removing all HTML elements.
+\end{itemize}
+
+\noindent removeUnnecessaryCharacters(String in)
+\begin{itemize}
+\item This method takes a String in as input and returns a String removing unnecessary leading and tailing spaces and quotes.
+\end{itemize}
 
 
 \subsection*{Province.java}\label{pprov}
@@ -1310,8 +1344,7 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{State (Instance) Variables}
 	private final String $f$ = "data/provinces.txt"\\
 	private Map$<$String,String$>$ $forward$ = new Hashtable$<$String,String$>$()\\
-	private Map$<$String,String$>$ $backward$ = new Hashtable$<$String,String$>$()
-\subsubsection*{Access Routine Semantics}
+	private Map$<$String,String$>$ $backward$ = new Hashtable$<$String,String$>$()\\
 
 
 \subsection*{Searcher.java}\label{psearch}
