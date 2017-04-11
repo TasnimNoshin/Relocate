@@ -3,10 +3,11 @@
 \usepackage{graphicx}
 \usepackage{paralist}
 \usepackage{amsfonts}
+\usepackage{graphicx}
 
 \oddsidemargin 0mm
 \evensidemargin 0mm
-\textwidth 160mm
+\textwidth 180mm
 \textheight 200mm
 \renewcommand\baselinestretch{1.0}
 
@@ -15,8 +16,14 @@
 
 \newcounter{stepnum}
 
-\title{Design Specifications Document \\ReLocate\\v}
-\author{COMP SCI 2XB3\\  Computer Science Practice and Experience: Binding Theory to Practice\\ \\Group 04\\Madeeha Khan, Tasnim Noshin, Umme Salma Gadriwala,\\ Jenny Feng Chen, Patrick Laskowski \\ \\ \\Department of Computer Science\\ McMaster University}
+\title{Software Specifications Document \\ReLocate\\version 3.2}
+
+\author{COMP SCI 2XB3\\  
+Computer Science Practice and Experience: Binding Theory to Practice\\ \\ \\
+Group 04\\Madeeha Khan, Tasnim Noshin, Umme Salma Gadriwala,\\ 
+Jenny Feng Chen, Patrick Laskowski \\ \\ \\
+Department of Computer Science\\ 
+McMaster University}
 
 \begin {document}
 
@@ -25,16 +32,20 @@
 \newpage
 \section*{Revisions}\label{revisions}
 
+
 \newpage
 \section*{Contributions}\label{contributions}
+
+
+
 
 \newpage
 \section*{Executive Summary}
 
 
+
 \newpage
 \section*{Module Decomposition}
-why we used the modules we did and why we divided them up the way we did
 The aim of the module decomposition was to organize information in a logical way such that it is easily accessible and that the overall structure allows more information to be easily added into the program. We considered the principles of seperation of concerns and information hiding in our design so that the security of the data is protected and information can be accessed in a minimalistic fashion.
 \\\\
 The following is a brief description of our classes, followed by a UML Classes Diagram to illustrate the relationship between our modules.
@@ -57,6 +68,13 @@ The following is a brief description of our classes, followed by a UML Classes D
 \item ProvinceMap: This class is a hash map that relates the province IDs (ON, BC, etc.) to the province names (Ontario, British Columbia, etc.).
 \item Searcher: This class takes in input information from the InputScreen class and searches through the Job-Province-City-Outlook hierarchy for results.
 \end{itemize}
+
+
+\begin{figure}[hp!]
+\caption{UML class diagram with relations. Figure is only visible from 250\%+ zoom}
+  \hspace*{-4.4cm}\includegraphics[width = 260mm]{Group04_Classes_Diagram.pdf}
+\end{figure}
+
 
 
 \newpage
@@ -237,7 +255,6 @@ Returns the sorted arrayList of cities as String.
 \end{itemize}
 
 
-
 \subsection*{CityIncome.java}\label{cityincome}
 This class represents a city with income from the income dataset.
 \subsubsection* {Syntax}
@@ -386,7 +403,7 @@ when getting data from the Parser.
 \item For every city in $c$, it creates a new CityIncome object with that city's City and Province fields.
 \\if the city did not already exist in the array c, it adds the income to the city, and adds the city to the cities
 \\otherwise, it adds the income to the already existing city.
-\\If there is no city, and only a province,  FINISH
+\\If there is no city, and only a province,  it creates a City and adds it at the end of the ArrayList
 \end{itemize}
 \noindent searchCity($cityName$)
 \begin{itemize}
@@ -733,8 +750,7 @@ getCityID & ~ & int & ~\\
 \end{itemize}
 
 
-\subsection*{Parser.java}\label{p
-arser}
+\subsection*{Parser.java}\label{parser}
 This class takes the outlooks.csv and income.csv files and scrapes them, and creates arrays out of their information.
 \subsubsection* {Syntax}
 
@@ -975,8 +991,6 @@ searchIncomeProvinceTest & String, String, String & ArrayList$<$City$>$ & IOExce
 \\It would return an empty ArrayList if the job did not exist.
 \end{itemize}
 
-
-
 \subsection*{TestGraph.java}\label{testg}
 This class tests the CityGraph and takes its input from a text file testText.txt
 \subsubsection* {Syntax}
@@ -998,7 +1012,6 @@ test & ~ & ~ & IOException\\
 \\If the potentials were not equal, a boolean value was switched to false and so the assertTrue at the end of the method would fail the test.
 \\To handle jobs that did not have any related cities, the boolean value was switched back to true if the ArrayList returned by getRelatedCitiesTest() had size of 0, since that was the expected result.
 \end{itemize}
-
 
 
 \subsection*{TestSearch.java}\label{tests}
@@ -1038,9 +1051,15 @@ incomeTest & ~ & ~ & Exception\\
 \\If the job does not exist, either in that province or income range, or at all, the boolean value is switched back to true if the size of the result ArrayList is 0, since that is expected.
 \end{itemize}
 
-
 \newpage
 \section*{Uses Relationship}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth] {Group04_Uses_Diagram.pdf}
+  \caption{Uses Case Diagram for ReLocate product.}
+  \label{fig:uses}
+\end{figure}
+
+
 
 
 
@@ -1050,7 +1069,7 @@ incomeTest & ~ & ~ & Exception\\
 
 \newpage
 
-\section{Private Methods Description}\label{private}
+\section*{Private Methods Description}
 \subsection*{City.java}\label{pcity}
 
 \subsubsection*{Semantics}
@@ -1234,8 +1253,8 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 	private final String $f$ = "data/provinces.txt"\\
-	private Map$<$String,String$>$ $forward$ = new Hashtable<String,String>()\\
-	private Map$<$String,String$>$ $backward$ = new Hashtable<String,String>()
+	private Map$<$String,String$>$ $forward$ = new Hashtable$<$String,String$>$()\\
+	private Map$<$String,String$>$ $backward$ = new Hashtable$<$String,String$>$()
 \subsubsection*{Access Routine Semantics}
 
 
@@ -1244,10 +1263,8 @@ ArrayList$<$CityIncome$>$ $cities$
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
 \subsubsection*{Access Routine Semantics}
-		JobArray $jobsFetcher$;
-		ArrayList$<$Job$>$ $ jobs$;
-
-
+		JobArray $jobsFetcher$\\
+		ArrayList$<$Job$>$ $ jobs$
 
 
 \newpage
