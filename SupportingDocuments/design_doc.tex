@@ -1376,9 +1376,9 @@ removeUnnecessaryCharacters & String & String & ~\\
 
 \subsubsection*{Semantics}
 \subsubsection*{State (Instance) Variables}
-	private final String $f$ = "data/provinces.txt"\\
-	private Map$<$String,String$>$ $forward$ = new Hashtable$<$String,String$>$()\\
-	private Map$<$String,String$>$ $backward$ = new Hashtable$<$String,String$>$()\\
+	private final String $f$\\
+	private Map$<$String,String$>$ $forward$\\
+	private Map$<$String,String$>$ $backward$\\
 
 
 \subsection*{Searcher.java}\label{psearch}
@@ -1387,6 +1387,25 @@ removeUnnecessaryCharacters & String & String & ~\\
 \subsubsection*{State (Instance) Variables}
 	JobArray $jobsFetcher$\\
 	ArrayList$<$Job$>$ $ jobs$
+
+\newpage 
+\subsection*{UnitTest.java}\label{utest}
+
+\subsubsection*{Semantics}
+\subsubsection*{State (Instance) Variables}
+	private static Province $province$ \\
+	private static City $cityH$\\
+	private static City $cityT$\\
+	private static Outlook $outlook$\\
+	private static Income $income$\\
+	private static Job $job$\\
+	private static CityIncome $cityIncome$\\
+	private static CityData $cityData$\\
+	private static ProvinceMap $map$\\
+	private static CityGraph $cityGraph$\\
+	private static GraphVertex $vertex1$\\
+	private static GraphVertex $vertex2$\\
+	private static GraphEdge $edge$\\
 
 
 \newpage
