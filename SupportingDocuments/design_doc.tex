@@ -32,6 +32,16 @@ McMaster University}
 \newpage
 \section*{Revisions}\label{revisions}
 \subsection*{Design Document Revisions}
+\begin{itemize}
+\item \textbf{17/03/10} document created, title page created
+\item \textbf{17/03/11} document was updated to add the roles and responsibilities of each group member, and the new abstract
+\item \textbf{17/03/13} document was updated to include the MergeSort, Parser, CityData, and OutlookData classes in the \texttt{Public Methods} and \texttt{Private Methods} sections, version number updated
+\item \textbf{17/03/16} document was updated to include all other existing classes, as of this date, in the \texttt{Public Methods} and \texttt{Private Methods} sections, version number updated
+\item \textbf{17/03/29} document was updated to include the graph-related and Income-related classes in the \texttt{Public Methods} and \texttt{Private Methods} sections, version number updated
+\item \textbf{17/04/09} document was updated to include all other existing classes, as of this date, in the \texttt{Public Methods} and \texttt{Private Methods} sections, version number updated
+\item \textbf{17/04/10} document was updated to include \texttt{Contributions} page, and the \texttt{Uses Relationship} diagram
+\item \textbf{17/04/11} document was updated to include \texttt{Review of Design} contents, as well as the \texttt{Module Decomposition} text and figure\\
+\end{itemize}
 
 \subsection*{Group Member Roles and Responsibilities}
 Madeeha Khan (1412644)  - Team Leader, Tester, Scrum Team 
@@ -51,7 +61,7 @@ Jenny Feng Chen (400011633)  - Programmer, Tester, Documentor
 \\
 \\
 Patrick Laskowski (400021159)  - Programming Lead, Testing Lead
-\\ \indent Extarct and organize information pulled from outlooks.csv and income.csv, the datasets used for this project. Create graphing algorithm to find cities related to the ones returned in the job search. Direct testing by communicating the important aspects of each module.
+\\ \indent Extarct and organize information pulled from outlooks.csv and income.csv, the datasets used for this project. Create graphing algorithm to find cities related to the ones returned in the job search. Direct testing by communicating the important aspects of each module.\\
 
 \subsection*{Attestation and Consent}
 \textit{By virtue of submitting this document we electronically sign and date that the  work  being  submitted  by  all  the  individuals  in  the  group  is  their  exclusive work as a group and we consent to make available the application developed  through  [CS]  or  [SE]-2XB3  project,  the  reports,  presentations,and assignments (not including my name and student number) for future teaching purposes.}
@@ -1131,6 +1141,70 @@ incomeTest & ~ & ~ & Exception\\
 \\If at any point the income is less, a boolean value is switched to false, which will cause the assertTrue at the end of the test to fail the test.
 \\If the job does not exist, either in that province or income range, or at all, the boolean value is switched back to true if the size of the result ArrayList is 0, since that is expected.
 \end{itemize}
+
+\subsection*{UnitTest.java}
+This class contains unit tests for the getters, setters, and other methods contained in the classes above.
+\subsubsection*{Syntax}
+\subsubsection* {Access Programs}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
+\hline
+testCity & ~ & ~ & ~\\
+\hline
+testCityData & ~ & ~ & ~\\
+\hline
+testCityIncome & ~ & ~ & ~\\
+\hline
+testGraphEdge & ~ & ~ & ~\\
+\hline
+ testGraphVertex& ~ & ~ & ~\\
+\hline
+testJob & ~ & ~ & ~\\
+\hline
+testOutlook & ~ & ~ & ~\\
+\hline
+testProvince & ~ & ~ & ~\\
+\hline
+testProvinceMap & ~ & ~ & ~\\
+\hline
+testParser & ~ & ~ & IOException\\
+\hline
+testJobArray & ~ & ~ & IOException\\
+\hline
+testIncome\_cityIncome & ~ & ~ & ~\\
+\hline
+\end{tabular}
+\subsubsection*{Semantics}
+\subsubsection*{Access Routine Semantics}
+\noindent testCity()\\
+\indent tests the getters for the City class\\
+\noindent testCityData()\\
+\indent tests the getters in the CityData class\\
+\noindent testCityIncome()\\
+\indent tests the getters in the CityIncome clas\\
+\noindent testGraphEdge()\\
+\indent tests the getters in the GraphEdge class\\
+\noindent testGraphVertex()\\
+\indent tests the getters in the GraphVertex class\\
+\noindent testJob()\\
+\indent tests the getters in the Job class\\
+\noindent testOutlook()\\
+\indent tests the getters in the Outlook class\\
+\noindent testProvince()\\
+\indent tests the getters in the Province class\\
+\noindent testProvinceMap()\\
+\indent tests the getters in the ProvinceMap class\\
+\noindent testParser()\\
+\indent tests the Parser class by checking if an entry in the OutlookData array created by getOutlookData is as expected
+\\ \indent (also check getters from the Outlook class)\\
+\noindent testJobArray()\\
+\indent tests the JobArray class by checking if an entry in the ArrayList of Job items created is as expected
+\\ \indent (also checks getters from the Job class)\\
+\noindent testIncome\_cityIncome()\\
+\indent tests the Income class by checing all the cities in the ArrayList created by the class
+\\ \indent (also checks the Income class getters)
+
 
 \newpage
 \section*{Uses Relationship}
