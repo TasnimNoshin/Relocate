@@ -2,6 +2,7 @@ package project.Relocate;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -22,6 +23,9 @@ public class UnitTest {
 	private static GraphVertex vertex1;
 	private static GraphVertex vertex2;
 	private static GraphEdge edge;
+	private static Parser p;
+	private static JobArray jobs;
+	private static Income i;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -47,6 +51,9 @@ public class UnitTest {
 		vertex2 = new GraphVertex(cityT, 3.0);
 		vertex1.connect(vertex2, 30000.00);
 		edge = new GraphEdge(vertex1, vertex2, 30000.00);
+		p = new Parser();
+		jobs = new JobArray();
+		i = new Income();
 		
 	}
 
@@ -54,7 +61,7 @@ public class UnitTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Test
+//	@Test
 	public void testCity() {
 		
 		assertTrue(cityH.getCityName().equals("Hamilton"));
@@ -66,7 +73,7 @@ public class UnitTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testCityData() {
 		
 		assertTrue(cityData.getCity().equals("Orillia "));
@@ -80,7 +87,7 @@ public class UnitTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testCityIncome() {
 		
 		assertEquals(cityIncome.getAvgIncome(),35000.00,0.01);
@@ -88,7 +95,7 @@ public class UnitTest {
 		assertTrue(cityIncome.getIncomes().contains(35000.00));
 	}
 	
-	@Test
+//	@Test
 	public void testGraphEdge() {
 		
 		assertEquals(edge.getWeight(),30000.00,0.01);
@@ -96,7 +103,7 @@ public class UnitTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testGraphVertex() {
 		
 		assertTrue(vertex1.getCityName().equals("Hamilton"));
@@ -107,7 +114,7 @@ public class UnitTest {
 	}
 	
 	
-	@Test
+//	@Test
 	public void testJob() {
 		
 		assertEquals(job.getAvgPotential(province),2.25,0.01);
@@ -119,7 +126,7 @@ public class UnitTest {
 
 	}
 	
-	@Test
+//	@Test
 	public void testOutlook() {
 		
 		assertTrue(outlook.getTrend().equals("Excellent!!"));
@@ -128,7 +135,7 @@ public class UnitTest {
 
 	}
 	
-	@Test
+//	@Test
 	public void testProvince() {
 		
 		assertEquals(province.getAvgPotential(),2.25,0.01);
@@ -142,12 +149,73 @@ public class UnitTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testProvinceMap() {
 		
 		assertTrue(map.getBackward("ON").equals("Ontario"));
 		assertTrue(map.getForward("Ontario").equals("ON"));
 		
+	}
+	
+	
+//	@Test
+	public void testParser() throws IOException {
+		OutlookData[] data = p.getOutlookDataArray();
+		String title = "Senior Government Managers and Officials";
+		String location = null;
+		String tdate = "15/04/2016";
+		int cityID = 0;
+		int code = 0;
+		String CPP = "Fair";
+		String lang = "EN";
+		int NOC = 12;
+		int pot = 3;
+		String prov = "NL";
+		int provID = 10;
+		String trend = "For the 2015-2017 period, the employment outlook is expected to be fair for Senior Government Managers and Officials (NOC 0012) in Newfoundland and Labrador.   This outlook is the result of an analysis of a number of factors that influence employment prospects in this occupation. Some of the key findings are that:   Employment is expected to decline.  A large number of people are expected to retire.  This occupation has recently experienced moderate levels of unemployment.   Here are some key facts about Senior Government Managers and Officials in Newfoundland and Labrador:  Approximately 550 people worked in this occupation in May 2011.  Senior Government Managers and Officials mainly work in the following sectors:  Local, municipal, regional, aboriginal and other public administration (NAICS 913-919): 57%  Provincial and territorial public administration (NAICS 912): 34%  Federal government public administration (NAICS 911): 7%    86% of Senior Government Managers and Officials work all year, while 14% work only part of the year, compared to 57% and 43% respectively among all occupations.  They fall into the following age groups:  15 to 24: less than 5% compared to 11% for all occupations  25 to 54: 64% compared to 70% for all occupations  55 years and over: 35% compared to 19% for all occupations    The gender distribution of people in this occupation is:   Men: 51% compared to 51% for all occupations  Women: 49% compared to 49% for all occupations    The educational attainment of workers in this occupation is:  No high school diploma: 7% compared to 14% for all occupations  High school diploma or equivalent: 9% compared to 22% for all occupations  Apprenticeship or trades certificate or diploma: 18% compared to 15% for all occupations  College certificate or diploma or university certificate below bachelor's: 27% compared to 30% for all occupations  Bachelor's degree: 27% compared to 13% for all occupations  University certificate, degree or diploma above bachelor level: 12% compared to 7% for all occupations";
+		
+		assertEquals(data[1].getTitle(),title);
+		assertEquals(data[1].getLocation(), location);
+		assertEquals(data[1].getTrendsDate(),tdate);
+		assertEquals(data[1].getCityID(),cityID);
+		assertEquals(data[1].getCode(),code);
+		assertEquals(data[1].getCPP(),CPP);
+		assertEquals(data[1].getLang(), lang);
+		assertEquals(data[1].getNOC(), NOC);
+		assertEquals(data[1].getPotential(), pot);
+		assertEquals(data[1].getProvAbbr(), prov);
+		assertEquals(data[1].getProvID(), provID);
+		assertEquals(data[1].getTrends(), trend);
+		
+	}
+	
+	
+
+//	@Test
+	public void testJobArray() throws IOException {
+		ArrayList<Job> theJobs = jobs.getJobArray();
+		Province p = theJobs.get(1).getProvinces().get(0);
+		City c = theJobs.get(1).getCities().get(0);
+		String name = "Senior Government Managers and Officials";
+		String city = "Avalon Peninsula";
+		int citypot = 3;
+		assertEquals(theJobs.get(1).getName(), name);
+		assertEquals(theJobs.get(1).getProvinces().get(0).getCities().get(0).getCityName(),city);
+		assertEquals(theJobs.get(1).getPotential(p, c),citypot);
+		assertEquals(theJobs.get(1).getCities().get(0).getCityName(),city);
+		assertEquals(theJobs.get(1).getCities(p).get(0).getCityName(),city);
+		
+	}
+	
+	
+	@Test
+	public void testIncome_cityIncome() {
+		ArrayList<CityIncome> u = i.getCities();
+		CityIncome k = u.get(2);
+		ArrayList<Double> t = k.getIncomes();
+		assertEquals(k.getCityName(), "St. John's ");
+		assertTrue(k.getAvgIncome() == 29043.555555555555);
+		assertTrue(t.get(3) == 27900.0);
 	}
 	
 	
