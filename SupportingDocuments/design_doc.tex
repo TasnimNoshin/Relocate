@@ -1379,6 +1379,12 @@ merge & ArrayList$<$Comparable$>$, int, int, int & ~ & ~\\
 \item This method takes an ArrayList$<$Comparable$>$ x, an int lo, an int hi and an int mid as input. This method uses extra memory to sort the array. First it creates an auxiliary array within the range of lo to hi and copies values in that range from x. Then within that range, it sorts the original array in ascending order.
 \end{itemize}
 
+\begin{figure}[hp!]
+\caption{State Machine Diagram for the MergeSort class}
+ \includegraphics[width =\linewidth]{statediagram_maergesort.pdf}
+\end{figure}
+
+\newpage
 \subsection*{Outlook.java}\label{poutlook}
 
 \subsubsection*{Semantics}
@@ -1386,6 +1392,7 @@ merge & ArrayList$<$Comparable$>$, int, int, int & ~ & ~\\
 	private int $potential$\\
 	private String $trend$\\
 	private City $city$\\
+
 
 \subsection*{OutlookData.java}\label{poutlookd}
 
@@ -1395,43 +1402,7 @@ merge & ArrayList$<$Comparable$>$, int, int, int & ~ & ~\\
 	private final int $potential,code,provID, NOC, cityID$\\
 
 
-\subsection*{Parser.java}\label{pparser}
-\subsubsection* {Syntax}
 
-\subsubsection* {Access Programs}
-\begin{tabular}{| l | l | l | l |}
-\hline
-\textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
-\hline
-splitLineForOutlook & String & String[ ] & ~\\
-\hline
-cleanString & String & String & ~\\
-\hline
-removeUnnecessaryCharacters & String & String & ~\\
-\hline
-\end{tabular}
-
-\subsubsection*{Semantics}
-\subsubsection*{State (Instance) Variables}
-	private final String $outlookName$ = "data/outlooks.csv"\\
-	private final String $incomeName$ = "data/income.csv"\\
-
-\subsubsection*{Access Routine Semantics}
-
-\noindent splitLineForOutlook(String input)
-\begin{itemize}
-\item This method takes a String input, which is input data from outlook.csv. This data holds all the information in single line. splitLineForOutlook method takes each line and returns an array of Strings with properly split data.
-\end{itemize}
-
-\noindent cleanString(String input)
-\begin{itemize}
-\item This method takes a String input as input and returns a String removing all HTML elements.
-\end{itemize}
-
-\noindent removeUnnecessaryCharacters(String in)
-\begin{itemize}
-\item This method takes a String in as input and returns a String removing unnecessary leading and tailing spaces and quotes.
-\end{itemize}
 
 
 \subsection*{Province.java}\label{pprov}
@@ -1480,6 +1451,49 @@ removeUnnecessaryCharacters & String & String & ~\\
 	private static GraphVertex $vertex1$\\
 	private static GraphVertex $vertex2$\\
 	private static GraphEdge $edge$\\
+
+\subsection*{Parser.java}\label{pparser}
+\subsubsection* {Syntax}
+
+\subsubsection* {Access Programs}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{Input} & \textbf{Output} & \textbf{Exceptions}\\
+\hline
+splitLineForOutlook & String & String[ ] & ~\\
+\hline
+cleanString & String & String & ~\\
+\hline
+removeUnnecessaryCharacters & String & String & ~\\
+\hline
+\end{tabular}
+
+\subsubsection*{Semantics}
+\subsubsection*{State (Instance) Variables}
+	private final String $outlookName$ = "data/outlooks.csv"\\
+	private final String $incomeName$ = "data/income.csv"\\
+
+\subsubsection*{Access Routine Semantics}
+
+\noindent splitLineForOutlook(String input)
+\begin{itemize}
+\item This method takes a String input, which is input data from outlook.csv. This data holds all the information in single line. splitLineForOutlook method takes each line and returns an array of Strings with properly split data.
+\end{itemize}
+
+\noindent cleanString(String input)
+\begin{itemize}
+\item This method takes a String input as input and returns a String removing all HTML elements.
+\end{itemize}
+
+\noindent removeUnnecessaryCharacters(String in)
+\begin{itemize}
+\item This method takes a String in as input and returns a String removing unnecessary leading and tailing spaces and quotes.
+\end{itemize}
+
+\begin{figure}[hp]
+\caption{State Machine Diagram for the Parser class}
+ \includegraphics[width =\linewidth, scale=0.25]{statediagram_parser.pdf}
+\end{figure}
 
 
 \newpage
