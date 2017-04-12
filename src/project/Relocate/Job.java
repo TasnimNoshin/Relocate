@@ -24,8 +24,8 @@ public class Job {
 		return this.name;
 	}
 
-	public Province[] getProvinces() {
-		return (Province[]) this.provinces.toArray();
+	public ArrayList<Province> getProvinces() {
+		return this.provinces;
 	}
 
 	public void addOutlook(Province province, City city, int potential, String trend) {
