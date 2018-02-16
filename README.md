@@ -1,1 +1,2 @@
-This is the final project repository.
+• Developed a desktop application for facilitating job search across Canada relevant to the user’s employment prospects and tested the application in Eclipse IDE which achieved an overall grade of 95% .
+• Implemented Binary Searching, Merge Sorting and Breadth First Graphing for searching jobs within a simple GUI, showing a sorted data output and mapping them according to potential match respectively.
